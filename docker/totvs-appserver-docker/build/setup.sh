@@ -17,3 +17,5 @@ cp /build/my-init.sh /usr/local/bin/my-init.sh
 cp /build/appserver.ini $TOTVS_PATH/protheus/bin/appserver/
 
 rm -rf /build
+
+echo "Executado setup.sh"

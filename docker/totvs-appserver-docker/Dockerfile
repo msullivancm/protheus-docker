@@ -1,6 +1,6 @@
 FROM centos:7
 
-LABEL maintainer "Marcus Sullivan <marcus.sullivan@gmail.com"
+LABEL maintainer "Marcus Sullivan <marcus.sullivan@gmail.com>"
 
 RUN yum -y update \
     && yum -y install \
@@ -19,11 +19,11 @@ RUN DUMB_INIT_SHA256="37f2c1f0372a45554f1b89924fbb134fc24c3756efaedf11e07f599494
     && echo "37f2c1f0372a45554f1b89924fbb134fc24c3756efaedf11e07f599494e0eff9 */usr/bin/dumb-init" | sha256sum -c - \
     && chmod +x /usr/bin/dumb-init
 
-COPY /build /build
+ADD 22-07-20-P12_SMARTCLIENT_WEBAPP_6.0.7_LINUX_X86_191205P.TAR.GZ /totvs12/protheus/bin/appserver
+ADD 23-04-25-PRINTER_LINUX_X64.TAR.GZ /totvs12/protheus/bin/appserver
+ADD 23-06-01-P12_APPSERVER_BUILD-20.3.1.9_LINUX_X64.TAR.GZ /totvs12/protheus/bin/appserver
 
-ADD *-P12_APPSERVER_BUILD-*_LINUX_X64.TAR.GZ /totvs12/protheus/bin/appserver
-ADD *P12_SMARTCLIENT_WEBAPP_*_LINUX_X86_*.TAR.GZ /totvs12/protheus/bin/appserver
-ADD *-PRINTER_LINUX_X64.TAR.GZ /totvs12/protheus/bin/appserver
+COPY ./build /build
 
 RUN /build/setup.sh
 
