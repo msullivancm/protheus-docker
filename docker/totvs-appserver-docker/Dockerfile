@@ -1,6 +1,6 @@
 FROM centos:7
 
-LABEL maintainer "Daniel Albuquerque <daniel.alb.querque@gmail.com>"
+LABEL maintainer "Marcus Sullivan <marcus.sullivan@gmail.com"
 
 RUN yum -y update \
     && yum -y install \
@@ -21,7 +21,9 @@ RUN DUMB_INIT_SHA256="37f2c1f0372a45554f1b89924fbb134fc24c3756efaedf11e07f599494
 
 COPY /build /build
 
-ADD 22-03-15-P12_APPSERVER_BUILD-20.3.0.8_LINUX_X64.TAR.GZ /totvs12/protheus/bin/appserver
+ADD *-P12_APPSERVER_BUILD-*_LINUX_X64.TAR.GZ /totvs12/protheus/bin/appserver
+ADD *P12_SMARTCLIENT_WEBAPP_*_LINUX_X86_*.TAR.GZ /totvs12/protheus/bin/appserver
+ADD *-PRINTER_LINUX_X64.TAR.GZ /totvs12/protheus/bin/appserver
 
 RUN /build/setup.sh
 
